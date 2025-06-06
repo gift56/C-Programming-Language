@@ -3,30 +3,28 @@
 
 int main()
 {
+    // SHOPPING CHART PROGRAM
+    
+    char item[50] = "";
+    float price = 0.0f;
+    int quantity = 0;
+    char currency = '$';
+    float total = 0.0f;
 
-    int age = 0;
-    float gpa = 0;
-    char grade = '\0';
-    char fullname[50] = "";
+    printf("What item would you like to buy?: ");
+    fgets(item, sizeof(item), stdin);
+    item[strlen(item) - 1] = '\0';
 
-    printf("Enter your age: ");
-    scanf("%d", &age);
+    printf("What is the price for each item?: ");
+    scanf("%f", &price);
 
-    printf("Enter your gpa: ");
-    scanf("%f", &gpa);
+    printf("How many would you like?: ");
+    scanf("%d", &quantity);
 
-    printf("Enter your grade: ");
-    scanf(" %c", &grade);
+    total = price * quantity;
 
-    getchar();
-    printf("Enter your full name: ");
-    // scanf("%c", &fullname);
-    fgets(fullname, sizeof(fullname), stdin);
-    fullname[strlen(fullname) - 1] = '\0';
+    printf("\nYou have bought items %d %s\n", quantity, item);
+    printf("Total amount for items %c%.2f", currency, total);
 
-    printf("%s\n", fullname);
-    printf("%d\n", age);
-    printf("%.2f\n", gpa);
-    printf("%c\n", grade);
     return 0;
 }
