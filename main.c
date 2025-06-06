@@ -1,30 +1,32 @@
 #include <stdio.h>
-#include <stdbool.h>
+#include <string.h>
 
 int main()
 {
-    // How to declare a whole number variable
-    int age = 21;
-    printf("You are %d years old\n", age);
 
-    // How to declare a decimal number variable
-    float degree = -10.1;
-    printf("The temperature outside is %.1f•F\n", degree);
+    int age = 0;
+    float gpa = 0;
+    char grade = '\0';
+    char fullname[50] = "";
 
-    // How to declare a long decimal number variable
-    double PI = 3.14159;
-    printf("The Pi of a circle is %lf\n", PI);
+    printf("Enter your age: ");
+    scanf("%d", &age);
 
-    // How to declare a single character string variable
-    char grade = 'A';
-    printf("You gpa is %c\n", grade);
+    printf("Enter your gpa: ");
+    scanf("%f", &gpa);
 
-    // How to declare a multiple character string variable
-    char name[] = "Efe Asiegwhu Gift";
-    printf("Hello 👋, my name is %s\n", name);
+    printf("Enter your grade: ");
+    scanf(" %c", &grade);
 
-    // How to declare a boolean variable it requires import of header file (#include <stdbool.h>)
-    bool isOnline = true;
+    getchar();
+    printf("Enter your full name: ");
+    // scanf("%c", &fullname);
+    fgets(fullname, sizeof(fullname), stdin);
+    fullname[strlen(fullname) - 1] = '\0';
 
+    printf("%s\n", fullname);
+    printf("%d\n", age);
+    printf("%.2f\n", gpa);
+    printf("%c\n", grade);
     return 0;
 }
