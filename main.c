@@ -1,32 +1,38 @@
 #include <stdio.h>
+#include <string.h>
 
 int main()
 {
-    // IF ELSE CONDITION
-    int age = 0;
+    // WEIGHT CONVERTER PROGRAM
 
-    printf("Enter your age: ");
-    scanf("%d", &age);
+    int choice = 0;
+    float pounds = 0.0f;
+    float kilograms = 0.0f;
 
-    if (age >= 65)
+    printf("Weight Conversion Calculator\n");
+    printf("1. Kilograms to Pounds\n");
+    printf("2. Pounds to Kilograms\n");
+
+    printf("Enter your choice (1 or 2): ");
+    scanf("%d", &choice);
+
+    if (choice == 1)
     {
-        printf("You're a senoir");
+        printf("Enter the weight in kilograms: ");
+        scanf("%f", &kilograms);
+        pounds = kilograms * 2.20462;
+        printf("%.2f kilograms is equal to %.2f pounds\n", kilograms, pounds);
     }
-    else if (age >= 18)
+    else if (choice == 2)
     {
-        printf("You're a adult");
-    }
-    else if (age < 0)
-    {
-        printf("You're haven't been born yet");
-    }
-    else if (age == 0)
-    {
-        printf("You are a newborn");
+        printf("Enter the weight in pounds: ");
+        scanf("%f", &pounds);
+        pounds = pounds / 2.20462;
+        printf("%.2f pounds is equal to %.2f kilograms\n", pounds, kilograms);
     }
     else
     {
-        printf("You are a child");
+        printf("Invalid choice! Please enter 1 or 2\n");
     }
 
     return 0;
