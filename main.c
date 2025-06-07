@@ -3,23 +3,31 @@
 
 int main()
 {
-    // MATH PROGRAM
-    const double PI = 3.1459;
-    double radius = 0.0;
-    double area = 0.0;
-    double surfaceArea = 0.0;
-    double volume = 0.0;
+    // COMPOUND INTEREST CALCULATOR
+    double principle = 0.0;
+    double rate = 0.0;
+    int years = 0;
+    int timesCompounded = 0;
+    double total = 0.0;
 
-    printf("Enter the radius: ");
-    scanf("%lf", &radius);
+    printf("Compound Interest Calculator\n");
 
-    area = PI * pow(radius, 2);
-    surfaceArea = 4 * PI * pow(radius, 2);
-    volume = (4.0 / 3.0) * PI * pow(radius, 3);
+    printf("Enter the principal (P): ");
+    scanf("%lf", &principle);
 
-    printf("Area of a circle: %.2lf\n", area);
-    printf("Surface Area of a circle(sphere): %.2lf\n", surfaceArea);
-    printf("Volume of a circle: %.2lf\n", volume);
+    printf("Enter the interest rate % (r): ");
+    scanf("%lf", &rate);
+    rate = rate / 100;
+
+    printf("Enter the # of years (t): ");
+    scanf("%d", &years);
+
+    printf("Enter # of times compounded per year (n): ");
+    scanf("%d", &timesCompounded);
+
+    total = principle * pow(1 + rate / timesCompounded, timesCompounded * years);
+
+    printf("After %d years, the total will be $%.2lf", years, total);
 
     return 0;
 }
