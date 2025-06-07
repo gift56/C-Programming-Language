@@ -1,39 +1,25 @@
 #include <stdio.h>
-#include <string.h>
+#include <math.h>
 
 int main()
 {
-    // MAD LIBS GAME
-    char noun[50] = "";
-    char verb[50] = "";
-    char adjective1[50] = "";
-    char adjective2[50] = "";
-    char adjective3[50] = "";
+    // MATH PROGRAM
+    const double PI = 3.1459;
+    double radius = 0.0;
+    double area = 0.0;
+    double surfaceArea = 0.0;
+    double volume = 0.0;
 
-    printf("Enter an adjective (description): ");
-    fgets(adjective1, sizeof(adjective1), stdin);
-    adjective1[strlen(adjective1) - 1] = '\0';
+    printf("Enter the radius: ");
+    scanf("%lf", &radius);
 
-    printf("Enter a noun (animal or person): ");
-    fgets(noun, sizeof(noun), stdin);
-    noun[strlen(noun) - 1] = '\0';
+    area = PI * pow(radius, 2);
+    surfaceArea = 4 * PI * pow(radius, 2);
+    volume = (4.0 / 3.0) * PI * pow(radius, 3);
 
-    printf("Enter an adjective (description): ");
-    fgets(adjective2, sizeof(adjective2), stdin);
-    adjective2[strlen(adjective2) - 1] = '\0';
-
-    printf("Enter a verb (ending w/ -ing): ");
-    fgets(verb, sizeof(verb), stdin);
-    verb[strlen(verb) - 1] = '\0';
-
-    printf("Enter an adjective (description): ");
-    fgets(adjective3, sizeof(adjective3), stdin);
-    adjective3[strlen(adjective3) - 1] = '\0';
-
-    printf("Today I went to a %s zoo.\n", adjective1);
-    printf("In an exhibit, I saw a %s.\n", noun);
-    printf("%s was %s and %s!\n", noun, adjective2, verb);
-    printf("I was %s!\n", adjective3);
+    printf("Area of a circle: %.2lf\n", area);
+    printf("Surface Area of a circle(sphere): %.2lf\n", surfaceArea);
+    printf("Volume of a circle: %.2lf\n", volume);
 
     return 0;
 }
