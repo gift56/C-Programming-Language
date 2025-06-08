@@ -3,36 +3,45 @@
 
 int main()
 {
-    // WEIGHT CONVERTER PROGRAM
+    // Temperature converter program
 
-    int choice = 0;
-    float pounds = 0.0f;
-    float kilograms = 0.0f;
+    char choice = '\0';
+    float fahrenheit = 0.0f;
+    float kelvin = 0.0f;
+    float celsius = 0.0f;
 
-    printf("Weight Conversion Calculator\n");
-    printf("1. Kilograms to Pounds\n");
-    printf("2. Pounds to Kilograms\n");
+    printf("Temperature Conversion Program\n");
+    printf("C. Celsius to Kelvin\n");
+    printf("K. Kelvin to Celsius\n");
+    printf("F. Fahrenheit to Celsius\n");
 
-    printf("Enter your choice (1 or 2): ");
-    scanf("%d", &choice);
+    printf("Enter your choice (C, F, or K): ");
+    scanf("%c", &choice);
 
-    if (choice == 1)
+    if (choice == 'C')
     {
-        printf("Enter the weight in kilograms: ");
-        scanf("%f", &kilograms);
-        pounds = kilograms * 2.20462;
-        printf("%.2f kilograms is equal to %.2f pounds\n", kilograms, pounds);
+        printf("Enter your temperature in Celsius: ");
+        scanf("%f", &celsius);
+        fahrenheit = (celsius * 9 / 5) + 32;
+        printf("%.1f Celsius is equal to %.1f Fahrenheit\n", celsius, fahrenheit);
     }
-    else if (choice == 2)
+    else if (choice == 'K')
     {
-        printf("Enter the weight in pounds: ");
-        scanf("%f", &pounds);
-        pounds = pounds / 2.20462;
-        printf("%.2f pounds is equal to %.2f kilograms\n", pounds, kilograms);
+        printf("Enter your temperature in Kelvin: ");
+        scanf("%f", &kelvin);
+        celsius = kelvin - 273.15;
+        printf("%.1f Kelvin is equal to %.1f Celsius\n", kelvin, celsius);
+    }
+    else if (choice == 'F')
+    {
+        printf("Enter your temperature in Fahrenheit: ");
+        scanf("%f", &fahrenheit);
+        celsius = (fahrenheit - 32) * 5 / 9;
+        printf("%.1f Fahrenheit is equal to %.1f Celsius\n", fahrenheit, celsius);
     }
     else
     {
-        printf("Invalid choice! Please enter 1 or 2\n");
+        printf("Invalid choice! Please select (C, K or F)\n");
     }
 
     return 0;
