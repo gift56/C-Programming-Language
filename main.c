@@ -1,26 +1,28 @@
 #include <stdio.h>
+#include <time.h>
+#include <windows.h>
 
 int main()
 {
-
-    // Read A File
-    FILE *pFile = fopen("input.txt", "r");
-    char buffer[1024] = {0};
-
-    if (pFile == NULL)
+    while (1)
     {
-        printf("Error opening file\n");
-        return 1;
+        // Get current time
+        time_t rawtime;
+        struct tm *timeinfo;
+        char buffer[9]; // HH:MM:SS
+
+        time(&rawtime);
+        timeinfo = localtime(&rawtime);
+
+        // Format time as HH:MM:SS
+        strftime(buffer, sizeof(buffer), "%H:%M:%S", timeinfo);
+
+        // Print time and flush stdout
+        printf("\r%s", buffer);
+        fflush(stdout);
+
+        // Wait for 1 second
+        Sleep(1000);
     }
-
-    while (fgets(buffer, sizeof(buffer), pFile) != NULL)
-    {
-        printf("%s", buffer);
-    }
-
-    printf("File was Read successfully\n");
-
-    fclose(pFile);
-
     return 0;
 }
